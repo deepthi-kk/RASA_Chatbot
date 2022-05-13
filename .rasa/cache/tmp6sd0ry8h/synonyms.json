@@ -1,0 +1,21 @@
+{
+  "both": "both restaurants and coffee houses",
+  "both restaurants and coffee house": "both restaurants and coffee houses",
+  "both restaurant and coffee houses": "both restaurants and coffee houses",
+  "both restaurant and coffee house": "both restaurants and coffee houses",
+  "restaurant and coffee house": "both restaurants and coffee houses",
+  "restaurant and coffee houses": "both restaurants and coffee houses",
+  "restaurants and coffee house": "both restaurants and coffee houses",
+  "restaurants and coffee houses": "both restaurants and coffee houses",
+  "both coffee houses and restaurants": "both restaurants and coffee houses",
+  "both coffee houses and restaurant": "both restaurants and coffee houses",
+  "both coffee house and restaurants": "both restaurants and coffee houses",
+  "both coffee house and restaurant": "both restaurants and coffee houses",
+  "coffee houses and restaurants": "both restaurants and coffee houses",
+  "coffee house and restaurants": "both restaurants and coffee houses",
+  "coffee houses and restaurant": "both restaurants and coffee houses",
+  "coffee house and restaurant": "both restaurants and coffee houses",
+  "restaurant": "restaurants",
+  "coffee house": "coffee houses",
+  "coffee": "coffee houses"
+}

@@ -1,0 +1,85 @@
+version: "3.1"
+
+rules:
+- rule: greet
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: hows's the weather
+  steps:
+  - intent: weather
+  - action: action_weather_api
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_ask_for_feedback
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: play
+  steps:
+  - intent: play_song
+  - action: action_play_song
+
+- rule: happy_path
+  steps:
+  - intent: agree
+  - action: utter_ask_firstN
+- rule: firstname
+  steps:
+  - intent: FirstName
+  - action: action_last_name
+- rule: lastname
+  steps:
+  - intent: LastName
+  - action: action_feedback
+- rule: feedback
+  steps:
+  - intent: feedback
+  - action: action_submit
+
+- rule: disagree_bye
+  steps:
+  - intent: disagree
+  - action: utter_goodbye
+
+- rule: Activate form
+  steps:
+  - intent: giving_place_type
+  - action: place_search_form
+  - active_loop: place_search_form
+
+- rule: Submit form
+  condition:
+  - active_loop: place_search_form
+  steps:
+  - action: place_search_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_beginning_search
+  - action: action_places_search
+
+- rule: out-of-scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_please_rephrase
+
+- rule: Explain purpose
+  steps:
+    - intent: ask_purpose
+    - action: utter_purpose
+    - action: utter_ask_place_type
+
+
+

@@ -1,0 +1,109 @@
+version: "3.1"
+
+stories:
+- story: weather
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: weather
+  - action: action_weather_api
+
+- story: happy path
+  steps:
+  - intent: goodbye
+  - action: utter_ask_for_feedback
+  - intent: agree
+  - action: utter_ask_firstN
+  - intent: FirstName
+  - action: action_last_name
+  - intent: LastName
+  - action: action_feedback
+
+- story: happy path 3
+  steps:
+  - intent: feedback
+  - action: action_submit
+  
+
+
+
+- story: play
+  steps:
+  - intent: play_song
+  - action: action_play_song
+
+
+- story: disagree path
+  steps:
+  - intent: goodbye
+  - action: utter_ask_for_feedback
+  - intent: disagree
+  - action: utter_goodbye
+
+- story: interactive_story_3
+  steps:
+  - intent: ask_purpose
+  - action: utter_purpose
+  - action: utter_ask_place_type
+  - intent: giving_place_type
+    entities:
+    - place_type: coffee houses
+  - slot_was_set:
+    - place_type: coffee houses
+  - action: place_search_form
+  - active_loop: place_search_form
+  - slot_was_set:
+    - requested_slot: address
+  - slot_was_set:
+    - lat_lon: 51.5073219,-0.1276474
+  - slot_was_set:
+    - address:
+      - London
+  - slot_was_set:
+    - requested_slot: radius
+  - slot_was_set:
+    - radius: '90.0'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_beginning_search
+  - action: action_places_search
+  - intent: giving_place_type
+    entities:
+    - place_type: both restaurants and coffee houses
+    - place_type: coffee houses and
+    - place_type: restaurants
+    - address: USA
+  - slot_was_set:
+    - lat_lon: 39.7837304,-100.445882
+  - slot_was_set:
+    - address:
+      - USA
+  - slot_was_set:
+    - place_type: restaurants
+  - action: place_search_form
+  - active_loop: place_search_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_beginning_search
+  - action: action_places_search
+  - intent: giving_address
+    entities:
+    - address: Gulsan
+    - address: Dhaka
+  - slot_was_set:
+    - lat_lon: 23.6148078,90.502026
+  - slot_was_set:
+    - address:
+      - Gulsan
+      - Dhaka
+  - action: action_beginning_search
+  - action: action_places_search
+  - intent: out_of_scope
+    entities:
+    - place_type: restaurants
+  - action: utter_out_of_scope
+  - intent: thanks
+  - action: utter_welcome
+
